@@ -2,13 +2,13 @@
 # CONFIG -----------------------------------------------------------------------------------------------------------#
 
 # Here are the input and output data paths (Note: you can override wav_path in preprocess.py)
-wav_path = '/path/to/wav_files/'
+wav_path = 'lusiadas/'
 data_path = 'data/'
 
 # model ids are separate - that way you can use a new tts with an old wavernn and vice versa
 # NB: expect undefined behaviour if models were trained on different DSP settings
-voc_model_id = 'ljspeech_mol'
-tts_model_id = 'ljspeech_lsa_smooth_attention'
+voc_model_id = 'lusiadas_mol'
+tts_model_id = 'lsa_smooth_attention'
 
 # set this to True if you are only interested in WaveRNN
 ignore_tts = False
@@ -17,7 +17,7 @@ ignore_tts = False
 # DSP --------------------------------------------------------------------------------------------------------------#
 
 # Settings for all models
-sample_rate = 22050
+sample_rate = 16000
 n_fft = 2048
 fft_bins = n_fft // 2 + 1
 num_mels = 80
@@ -49,7 +49,7 @@ voc_lr = 1e-4
 voc_checkpoint_every = 25_000
 voc_gen_at_checkpoint = 5           # number of samples to generate at each checkpoint
 voc_total_steps = 1_000_000         # Total number of training steps
-voc_test_samples = 50               # How many unseen samples to put aside for testing
+voc_test_samples = 278              # amostras canto 10
 voc_pad = 2                         # this will pad the input so that the resnet can 'see' wider than input length
 voc_seq_len = hop_length * 5        # must be a multiple of hop_length
 voc_clip_grad_norm = 4              # set to None if no gradient clipping needed
@@ -73,7 +73,7 @@ tts_lstm_dims = 512
 tts_postnet_K = 8
 tts_num_highways = 4
 tts_dropout = 0.5
-tts_cleaner_names = ['english_cleaners']
+tts_cleaner_names = ['transliteration_cleaners']
 tts_stop_threshold = -3.4           # Value below which audio generation ends.
                                     # For example, for a range of [-4, 4], this
                                     # will terminate the sequence at the first
