@@ -2,7 +2,7 @@
 # CONFIG -----------------------------------------------------------------------------------------------------------#
 
 # Here are the input and output data paths (Note: you can override wav_path in preprocess.py)
-wav_path = 'lusiadas/'
+wav_path = '/home/omnilogic/datasets/lusiadas/main'
 data_path = 'data/'
 
 # model ids are separate - that way you can use a new tts with an old wavernn and vice versa
@@ -49,7 +49,7 @@ voc_lr = 1e-4
 voc_checkpoint_every = 25_000
 voc_gen_at_checkpoint = 5           # number of samples to generate at each checkpoint
 voc_total_steps = 1_000_000         # Total number of training steps
-voc_test_samples = 278              # amostras canto 10
+voc_test_samples = 279              # amostras canto 10
 voc_pad = 2                         # this will pad the input so that the resnet can 'see' wider than input length
 voc_seq_len = hop_length * 5        # must be a multiple of hop_length
 voc_clip_grad_norm = 4              # set to None if no gradient clipping needed
@@ -86,7 +86,7 @@ tts_schedule = [(7,  1e-3,  10_000,  32),   # progressive training schedule
                 (2,  1e-4, 180_000,  16),
                 (2,  1e-4, 200_000,  8)]
 
-tts_max_mel_len = 2500              # if you have a couple of extremely long spectrograms you might want to use this
+tts_max_mel_len = 1250              # if you have a couple of extremely long spectrograms you might want to use this
 tts_bin_lengths = True              # bins the spectrogram lengths before sampling in data loader - speeds up training
 tts_clip_grad_norm = 1.0            # clips the gradient norm to prevent explosion - set to None if not needed
 tts_checkpoint_every = 2_000        # checkpoints the model every X steps

@@ -103,6 +103,8 @@ def get_tts_datasets(path: Path, batch_size, r):
     with open(path/'dataset.pkl', 'rb') as f:
         dataset = pickle.load(f)
 
+    # dataset_ids = [x[0] for x in dataset]
+    # mel_lengths = [x[1] for x in dataset]
     dataset_ids = []
     mel_lengths = []
 
